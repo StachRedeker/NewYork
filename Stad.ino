@@ -19,14 +19,14 @@ const int VerfPin =  2;
 // en nu de kansen op succes (lichtcircuit gaat uit)
 // het getal staat voor 1/kans
 // voorbeeld: uit 2 volgt -> kans = 1/2 = 50%
-int WitOdd = 2;
-int BlauwOdd = 2;
-int GeelOdd = 4;
-int PaarsOdd = 4;
-int GrijsOdd = 8;
-int GroenOdd = 8;
-int OranjeOdd = 16;
-int BruinOdd = 32;
+int WitOdd = 32;
+int BlauwOdd = 16;
+int GeelOdd = 8;
+int PaarsOdd = 8;
+int GrijsOdd = 4;
+int GroenOdd = 4;
+int OranjeOdd = 2;
+int BruinOdd = 2;
 
 // en nu de randomnummervariabelen
 int WitRandNumber;
@@ -52,15 +52,25 @@ void setup() {
 // dat gebruikt hij om een RandomSeed te genereren
   randomSeed(analogRead(0));
 
+// alle pins waar de relais/lampjes/lichtcircuits aanzitten, defineren als outputs
+pinMode(WitPin, OUTPUT);
+pinMode(BlauwPin, OUTPUT);
+pinMode(GeelPin, OUTPUT);
+pinMode(PaarsPin, OUTPUT);
+pinMode(GrijsPin, OUTPUT);
+pinMode(GroenPin, OUTPUT);
+pinMode(OranjePin, OUTPUT);
+pinMode(BruinPin, OUTPUT);
+
 // alle lampjes testen
-digitalWrite(WitPin, HIGH);
-digitalWrite(BlauwPin, HIGH);
-digitalWrite(GeelPin, HIGH);
-digitalWrite(PaarsPin, HIGH);
-digitalWrite(GrijsPin, HIGH);
-digitalWrite(GroenPin, HIGH);
-digitalWrite(OranjePin, HIGH);
-digitalWrite(BruinPin, HIGH);
+digitalWrite(WitPin, LOW);
+digitalWrite(BlauwPin, LOW);
+digitalWrite(GeelPin, LOW);
+digitalWrite(PaarsPin, LOW);
+digitalWrite(GrijsPin, LOW);
+digitalWrite(GroenPin, LOW);
+digitalWrite(OranjePin, LOW);
+digitalWrite(BruinPin, LOW);
 
 delay(2000);
 
@@ -87,73 +97,73 @@ BruinRandNumber = random(BruinOdd);
 // als [Kleur]RandNumber niet gelijk is aan 0, moet het lichtcircuit aangaan
  if (WitRandNumber == 0) {
     // lamp moet uit:
-    digitalWrite(WitPin, LOW);
+    digitalWrite(WitPin, HIGH);
   } else {
     // lamp moet aan:
-    digitalWrite(WitPin, HIGH);
+    digitalWrite(WitPin, LOW);
   }
 delay(1000);
 
  if (BlauwRandNumber == 0) {
     // lamp moet uit:
-    digitalWrite(BlauwPin, LOW);
+    digitalWrite(BlauwPin, HIGH);
   } else {
     // lamp moet aan:
-    digitalWrite(BlauwPin, HIGH);
+    digitalWrite(BlauwPin, LOW);
   }
 delay(1000);
 
  if (GeelRandNumber == 0) {
     // lamp moet uit:
-    digitalWrite(GeelPin, LOW);
+    digitalWrite(GeelPin, HIGH);
   } else {
     // lamp moet aan:
-    digitalWrite(GeelPin, HIGH);
+    digitalWrite(GeelPin, LOW);
   }
 delay(1000);
 
  if (PaarsRandNumber == 0) {
     // lamp moet uit:
-    digitalWrite(PaarsPin, LOW);
+    digitalWrite(PaarsPin, HIGH);
   } else {
     // lamp moet aan:
-    digitalWrite(PaarsPin, HIGH);
+    digitalWrite(PaarsPin, LOW);
   }
 delay(1000);
 
  if (GrijsRandNumber == 0) {
     // lamp moet uit:
-    digitalWrite(GrijsPin, LOW);
+    digitalWrite(GrijsPin, HIGH);
   } else {
     // lamp moet aan:
-    digitalWrite(GrijsPin, HIGH);
+    digitalWrite(GrijsPin, LOW);
   }
 delay(1000);
 
  if (GroenRandNumber == 0) {
     // lamp moet uit:
-    digitalWrite(GroenPin, LOW);
+    digitalWrite(GroenPin, HIGH);
   } else {
     // lamp moet aan:
-    digitalWrite(GroenPin, HIGH);
+    digitalWrite(GroenPin, LOW);
   }
 delay(1000);
 
  if (OranjeRandNumber == 0) {
     // lamp moet uit:
-    digitalWrite(OranjePin, LOW);
+    digitalWrite(OranjePin, HIGH);
   } else {
     // lamp moet aan:
-    digitalWrite(OranjePin, HIGH);
+    digitalWrite(OranjePin, LOW);
   }
 delay(1000);
 
  if (BruinRandNumber == 0) {
     // lamp moet uit:
-    digitalWrite(BruinPin, LOW);
+    digitalWrite(BruinPin, HIGH);
   } else {
     // lamp moet aan:
-    digitalWrite(BruinPin, HIGH);
+    digitalWrite(BruinPin, LOW);
   }
 delay(1000);
 
@@ -170,10 +180,10 @@ VerfNumber = (WitRandNumber + BlauwRandNumber + GeelRandNumber + PaarsRandNumber
  if (VerfNumber == 0) {
     // verf moet vallen:
     delay(5000);
-    digitalWrite(VerfPin, HIGH);
+    digitalWrite(VerfPin, LOW);
   } else {
     // verf moet niet vallen:
-    digitalWrite(VerfPin, LOW);
+    digitalWrite(VerfPin, HIGH);
   }
 
 
